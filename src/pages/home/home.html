@@ -6,12 +6,65 @@
 
 <ion-content padding>
   <h2>Welcome to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
+  <button ion-button (click)="gotosecondpage()">goto_second</button>
+
+  <ion-list>
+    <ion-item>
+      <ion-input type="text" placeholder="name here" [(ngModel)]="username"></ion-input>
+    </ion-item>
+
+
+    <ion-item><ion-input type="password" placeholder="password here" [(ngModel)]="password"></ion-input>
+    </ion-item>
+  </ion-list>
+  <button ion-button (click)="login()">sign in</button>
+
+  <p>{{username}}</p>
+
+  <ion-list>
+    <ion-item *ngFor="let item of comment">
+      <ion-row>
+        <p>{{item}}</p>
+        <button  ion-button class="bttn">Button</button>
+      </ion-row>
+    </ion-item>
+  </ion-list>
+
+  <!-- push it-->
+  <ion-list>
+    <ion-item>
+      <ion-label floating>push</ion-label>
+      <ion-input type="text" [(ngModel)]="addcomment"></ion-input>
+    </ion-item>
+    <button ion-button (click)="addcomments()">push</button>
+  </ion-list>
+  <!--pop it-->
+  <!--
+      <ion-input type="text" [(ngModel)]="addcomment"></ion-input>
+      <button ion-button (click)="addcomments()">Add Comments</button>
+  -->
+  <ion-list>
+    <ion-item *ngFor= "let item of students">
+      <ion-row>
+        <p>{{item.name}}</p>
+        <p>{{item.batch}}</p>
+        <p>{{item.year}}</p>
+      </ion-row>
+    </ion-item>
+  </ion-list>
+
+
+  <!---for multi rows --->
+  <ion-list>
+    <ion-item>
+      <ion-label floating>Add details</ion-label>
+      <ion-input type="text" [(ngModel)]="student_name"></ion-input>
+      <ion-input type="text" [(ngModel)]="batch"></ion-input>
+      <ion-input type="text" [(ngModel)]="year"></ion-input>
+    </ion-item>
+    <button ion-button (click)="addstudent()">add</button>
+
+  </ion-list>
+
+
 </ion-content>
